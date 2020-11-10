@@ -8,7 +8,7 @@ let gulp = require('gulp'),
     cssmin = require('gulp-cssmin');//сжимает файлы css
 
   gulp.task('sass', function () {//задача task имя sass будет переводить препроцессор
-  return gulp.src('app/scss/style.scss')//зайти в папку app / ищим файл с которым нужно провести операцию /ретерн это чтобы много раз шло обнавление информация при условии что мы вносим новую информацию  
+    return gulp.src('app/scss/**/*.scss')//зайти в папку app / ищим файл с которым нужно провести операцию /ретерн это чтобы много раз шло обнавление информация при условии что мы вносим новую информацию /*-он будет брать в папке scss  все папки и все вложенности и будет их переводить преобразовывать в css
   .pipe(sass({ outputStyle: 'compressed' })) //метод sass происходит обработка и sass превращается в css попутно сжимается компресед
   .pipe(rename({suffix : '.min'})) //труба каторая будет переименововать его  
     .pipe(autoprefixer({
@@ -59,7 +59,7 @@ gulp.task('browser-sync', function () {//обнавляет страницу
 });
 
 gulp.task('watch', function(){//если происходит изменение в scss то выполняется таск gulp-sass тоесть нам не надо в ручную его запускать мы увидим изменения в style.min.css. написали в scss а изменения в style.min.css будут
-  gulp.watch('app/scss/style.scss', gulp.parallel('sass')) //за кем конкретно будем следить style.scss. если изменение то будет выполняться таск sass/вотчинг следит и если произошли изменения в html внесли инфу то обнавляется страница с помощью browser-sync
+  gulp.watch('app/scss/**/*.scss', gulp.parallel('sass')) //за кем конкретно будем следить style.scss. если изменение то будет выполняться таск sass/вотчинг следит и если произошли изменения в html внесли инфу то обнавляется страница с помощью browser-sync
   gulp.watch('app/*.html', gulp.parallel('html'))
   gulp.watch('app/js/*.js', gulp.parallel('js'))
 });
