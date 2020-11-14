@@ -9,7 +9,7 @@ let gulp = require('gulp'),
 
   gulp.task('sass', function () {//задача task имя sass будет переводить препроцессор
     return gulp.src('app/scss/**/*.scss')//зайти в папку app / ищим файл с которым нужно провести операцию /ретерн это чтобы много раз шло обнавление информация при условии что мы вносим новую информацию /*-он будет брать в папке scss  все папки и все вложенности и будет их переводить преобразовывать в css
-  .pipe(sass({ outputStyle: 'compressed' })) //метод sass происходит обработка и sass превращается в css попутно сжимается компресед
+  .pipe(sass({ outputStyle: 'expanded' })) //метод sass происходит обработка и sass превращается в css попутно сжимается компресед
   .pipe(rename({suffix : '.min'})) //труба каторая будет переименововать его  
     .pipe(autoprefixer({
       overrideBrowserslist: ['last 8 versions']
@@ -20,8 +20,10 @@ let gulp = require('gulp'),
 
 gulp.task('style', function () {//собираем все файлы css 
   return gulp.src([
+    'node_modules/normalize.css/normalize.css',
     'node_modules/slick-carousel/slick/slick.css',//указываем путь до слика.css
-    'node_modules/magnific-popup/dist/magnific-popup.css'// указываем путь до магнифика
+    'node_modules/magnific-popup/dist/magnific-popup.css',// указываем путь до магнифика
+    'app/libs/jquery.rateyo.css'
   ])
     .pipe(concat('libs.min.css'))//обьединяем в один файл libs
     .pipe(cssmin())//сжимаем
@@ -32,7 +34,9 @@ gulp.task('style', function () {//собираем все файлы css
 gulp.task('script', function(){//собираем все файлы джс слик и магнифик
 return gulp.src([
   'node_modules/slick-carousel/slick/slick.js',//указываем путь до слика.джс
-  'node_modules/magnific-popup/dist/jquery.magnific-popup.js'// указываем путь до магнифика
+  'node_modules/magnific-popup/dist/jquery.magnific-popup.js',// указываем путь до магнифика
+  'node_modules/mixitup/dist/mixitup.js',
+  'app/libs/jquery.rateyo.js'
 ])
      .pipe(concat('libs.min.js'))//обьединяем в один файл libs
   .pipe(uglify())//сжимаем с помощью углифи
