@@ -40,7 +40,7 @@ font-weight: 400;
  font-size: 24px;
  line-height: 60px;
  color: $bg;
- font-weight: 700;
+ @include f700;
  margin-bottom: 30px;
  text-align: center;
 }

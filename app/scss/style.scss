@@ -83,7 +83,7 @@
   &-title {
     margin-bottom: 10px;
     font-size: 48px;
-    font-weight: 700;
+    @include f700;
     line-height: 72px;
   }
 
@@ -91,7 +91,7 @@
     margin-bottom: 50px;
     font-size: 20px;
     line-height: 30px;
-    font-weight: 500;
+    @include f500;
   }
 
   &-form {
@@ -107,13 +107,13 @@
       height: 56px;
       border: none;
       font-size: 14px;
-      font-weight: 500;
+      @include f500;
       padding-left: 25px;
       padding-right: 60px;
 
       &::placeholder {
         color: #90a4ae;
-        font-weight: 500;
+        @include f500;
       }
     }
 
@@ -143,7 +143,7 @@
     padding: 12px 21px;
     border: none;
     font-size: 14px;
-    font-weight: 500;
+    @include f500;
     background-color: #fff;
     color: $bg;
     cursor: pointer;
@@ -178,7 +178,7 @@
     display: block;
     background-position: center;
     background-size: cover;
-    font-weight: 500;
+    @include f500;
   }
 
   &-content {
@@ -208,7 +208,7 @@
 
   &-price {
     font-size: 20px;
-    font-weight: 700;
+    @include f700;
     color: $bg;
   }
 
@@ -224,7 +224,8 @@
     align-items: center;
     display: flex;
     max-width: 245px;
-//.product__item-author .avatar
+
+    //.product__item-author .avatar
     .avatar {
       width: 30px;
       height: 30px;
@@ -235,15 +236,17 @@
       background-size: cover;
       margin-right: 14px;
     }
-//.product__item-author span
+
+    //.product__item-author span
     span {
       font-size: 14px;
-      font-weight: 500;
+      @include f500;
     }
   }
 
   &-star {
     font-size: 12px;
+
     //.product__item-star span
     span {
       color: $bg;
@@ -278,23 +281,27 @@
 //.product-slider 
 .product-slider {
   padding: 110px 0 120px;
+
   //.product-slider .slick-dots
-  .slick-dots{
+  .slick-dots {
     text-align: center;
     margin-top: 50px;
+
     //.product-slider .slick-dots li 
-    li{
+    li {
       display: inline-block;
       margin-left: 3px;
       margin-right: 3px;
+
       //.product-slider .slick-dots li.slick-active button
-      &.slick-active{
-        button{
+      &.slick-active {
+        button {
           background-color: $green;
         }
       }
+
       //.product-slider .slick-dots li button
-      button{
+      button {
         border-radius: 50%;
         background-color: rgb(232, 232, 232);
         border: none;
@@ -309,3 +316,69 @@
 }
 
 //end products-slider
+
+
+// start advantages
+
+.advantages {
+  background-color: $bg;
+  padding: 110px 0;
+}
+
+.advantages__title {
+  color: #fff;
+}
+
+.advantages__inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.advantages__item {
+  max-width: 370px;
+  text-align: center;
+  padding: 0 15px;
+  //.advantages__item:hover .advantages__item-images 
+  &:hover {
+    .advantages__item-images{
+      background-color: $green; 
+    }
+    //.advantages__item:hover .advantages__item-title
+    .advantages__item-title{
+      color: $green;  
+    }
+    //.advantages__item:hover .advantages__item-images svg
+    .advantages__item-images{
+      svg{
+        fill: #fff;
+      }
+    }
+  }
+  &-images {
+    width: 114px;
+    height: 114px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 30px;
+    transition: all .5s;
+  }
+
+  &-title {
+    margin-bottom: 25px;
+    font-size: 24px;
+    // line-height: 60px;
+    color: #fff;
+    @include f500;
+    transition: all .5s;
+  }
+
+  &-text {
+    color: #b0bec5;
+    font-size: 15px;
+  }
+}
+
+//end advantages
