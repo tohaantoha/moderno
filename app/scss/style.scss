@@ -338,22 +338,26 @@
   max-width: 370px;
   text-align: center;
   padding: 0 15px;
+
   //.advantages__item:hover .advantages__item-images 
   &:hover {
-    .advantages__item-images{
-      background-color: $green; 
+    .advantages__item-images {
+      background-color: $green;
     }
+
     //.advantages__item:hover .advantages__item-title
-    .advantages__item-title{
-      color: $green;  
+    .advantages__item-title {
+      color: $green;
     }
+
     //.advantages__item:hover .advantages__item-images svg
-    .advantages__item-images{
-      svg{
+    .advantages__item-images {
+      svg {
         fill: #fff;
       }
     }
   }
+
   &-images {
     width: 114px;
     height: 114px;
@@ -382,3 +386,49 @@
 }
 
 //end advantages
+
+
+//start author
+.author {
+  background-position: center;
+  background-size: cover;
+  min-height: 750px;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__box {
+    max-width: 650px;
+    //сделали так как зеленый блок не растгивался на 650
+    width: 100%;
+    min-height: 215px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $green;
+  }
+
+  &__title {
+    font-size: 30px;
+    line-height: 36px;
+    color: #fff;
+    margin-right: 45px;
+    max-width: 262px;
+    span{
+      @include f700;
+
+    }
+  }
+
+  &__link {
+    color: $bg;
+    font-size: 18px;
+    line-height: 36px;
+    padding: 14px 40px;
+    background-color: #fff;
+  }
+}
+
+
+//end author
